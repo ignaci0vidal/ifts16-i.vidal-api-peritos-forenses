@@ -1,0 +1,481 @@
+{
+  "info": {
+    "_postman_id": "95b17530-1983-441b-a11f-5d2199ead9d5",
+    "name": "IFTS - Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21715191"
+  },
+  "item": [
+    {
+      "name": "ALTA perito",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"perito_nuevo\",\r\n  \"role_id\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ALTA perito DUPLICADO",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"perito_nuevo\",\r\n  \"role_id\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ALTA perito ROL INEXISTENTE",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"perito_prueba\",\"role_id\":999}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ALTA perito VACÍO",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"\",\"role_id\":2}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ALTA perito VACÍO ROL INVÁLIDO",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"perito_prueba\",\"role_id\":\"abc\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE perito existente",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE perito INEXISTENTE",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/999999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "999999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE perito ID INVALIDO",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/abc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "abc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar activos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar administradores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos?role=ADMIN",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ],
+          "query": [
+            {
+              "key": "role",
+              "value": "ADMIN"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar inspectores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos?role=FORENSIC_INSPECTOR",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ],
+          "query": [
+            {
+              "key": "role",
+              "value": "FORENSIC_INSPECTOR"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar rol inexistente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos?role=OTRO",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ],
+          "query": [
+            {
+              "key": "role",
+              "value": "OTRO"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Perito activo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos?role=",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ],
+          "query": [
+            {
+              "key": "role",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Inspector activo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar rol vacío",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos?role=",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos"
+          ],
+          "query": [
+            {
+              "key": "role",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Perito dado de baja",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ID inexistente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ID inválido",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/peritos/abc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "peritos",
+            "abc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}

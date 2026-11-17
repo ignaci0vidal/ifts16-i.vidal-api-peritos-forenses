@@ -8,17 +8,36 @@ API REST desarrollada con Node.js, Express y Sequelize para gestionar usuarios p
 
 Permite registrar peritos, consultar usuarios activos, filtrar por rol y realizar bajas lógicas sin eliminar físicamente los registros.
 
-## Tecnologías
+## Estructura del proyecto
 
-- Node.js
-- Express
-- Sequelize ORM
-- SQLite
-- PostgreSQL
-- Docker Compose
-- Morgan
-- Chalk
-- http-errors
+```text
+ifts16-api-peritos-forenses/
+├── src/
+│   ├── config/
+│   │   └── database.js
+│   ├── controllers/
+│   │   └── peritos.controller.js
+│   ├── middlewares/
+│   │   └── errorHandler.js
+│   ├── models/
+│   │   ├── index.js
+│   │   ├── role.js
+│   │   └── user.js
+│   ├── routes/
+│   │   └── peritos.routes.js
+│   ├── app.js
+│   └── server.js
+├── scripts/
+│   └── seed.js
+├── .env.example
+├── .gitignore
+├── compose.yaml
+├── forensics.db
+├── package.json
+├── package-lock.json
+├── consigna.md
+└── README.md
+```
 
 ## Instalación
 

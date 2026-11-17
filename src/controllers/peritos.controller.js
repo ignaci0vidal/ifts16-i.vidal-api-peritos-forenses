@@ -36,9 +36,10 @@ async function crearPerito(req, res, next) {
 
     // Mensaje cyan solicitado en la consigna
     console.log(
-      chalk.cyan(
-        `Perito creado: ID=${perito.id}, username=${perito.username}, rol=${rol.nombre_rol}`,
-      ),
+      chalk.cyan.bold('[ALTA]') +
+        chalk.cyan(
+          ` Perito #${perito.id} | usuario: ${perito.username} | rol: ${rol.nombre_rol}`,
+        ),
     );
 
     return res.status(201).json(perito);
@@ -79,6 +80,12 @@ async function eliminarPerito(req, res, next) {
 
     // Soft Delete: NO se elimina el registro
     await perito.update({ active: false });
+    console.log(
+      chalk.cyan.bold('[BAJA]') +
+        chalk.cyan(
+          ` Perito #${perito.id} | usuario: ${perito.username} | active: false`,
+        ),
+    );
 
     return res.status(200).json({
       mensaje: 'Perito dado de baja correctamente',
