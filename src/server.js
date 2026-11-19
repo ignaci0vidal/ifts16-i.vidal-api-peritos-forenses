@@ -10,7 +10,12 @@ async function start() {
     await sequelize.authenticate();
     await sequelize.sync();
     app.listen(PORT, () => {
-      logger.banner(PORT, sequelize.getDialect(), sequelize.options.storage);
+      logger.banner(PORT, sequelize.getDialect(), {
+        storage: sequelize.options.storage,
+        host: sequelize.config.host,
+        port: sequelize.config.port,
+        database: sequelize.config.database,
+      });
     });
   } catch (error) {
     logger.error(error);

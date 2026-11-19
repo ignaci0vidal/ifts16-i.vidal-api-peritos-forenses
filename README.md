@@ -177,16 +177,39 @@ La baja lógica cambia `active` a `false`; los registros permanecen almacenados,
 
 ## Auditoría y errores
 
-Morgan registra las solicitudes HTTP en consola.
+La presentación de los mensajes se centraliza en
+[`src/utils/logger.js`](src/utils/logger.js), un módulo propio que utiliza Chalk
+y se integra con Morgan. No requiere instalar dependencias adicionales.
+
+- Etiquetas alineadas para identificar altas, bajas, validaciones y errores.
+- Colores en etiquetas y códigos HTTP para destacar la información relevante.
+- Morgan registra método, ruta y estado HTTP, sin hora ni duración.
+- El banner de inicio aparece después de conectar y sincronizar la base: muestra
+  la URL de la API y el motor conectado. Para SQLite indica el archivo; para
+  PostgreSQL, el host, puerto y nombre de base, sin mostrar credenciales.
+- Los errores internos muestran el mensaje principal y, debajo, las líneas del
+  stack en rojo tenue, sin repetir el encabezado del error.
 
 Chalk distingue los mensajes mediante colores:
 
 - Cyan: registro exitoso de un usuario.
 - Amarillo: errores de validación.
 - Rojo: errores internos y stack.
+- Verde: banner de inicio y estados HTTP exitosos.
+- Azul: etiquetas HTTP y errores como 404.
+
+En los registros de Morgan, los códigos 400 y 409 se muestran en amarillo;
+los códigos 500 o superiores, en rojo; las redirecciones, en cyan.
+
+### Ejemplo de consola
+
+![Banner de PostgreSQL y mensajes de alta, HTTP, validación y error](docs/images/consola.svg)
+
+Imagen ilustrativa basada en el ejemplo de referencia. Los mensajes reales
+dependen del motor seleccionado y de las peticiones ejecutadas.
 
 El middleware centralizado devuelve respuestas HTTP en formato JSON.
 
-## Desarrollado por:
+## Desarrollado por
 
 Ignacio Vidal — IFTS N.º 16.

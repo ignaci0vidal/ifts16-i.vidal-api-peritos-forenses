@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" role="img" aria-labelledby="title desc">
+  <title id="title">Ejemplo de la consola de la API de Peritos Forenses</title>
+  <desc id="desc">Banner de PostgreSQL y ejemplos de alta, solicitud HTTP, validación y error.</desc>
+  <rect width="800" height="300" rx="8" fill="#111827"/>
+  <g font-family="Consolas, monospace" font-size="15">
+    <path d="M16 18H680 M16 144H680" stroke="#4ade80"/>
+    <g fill="#4ade80">
+      <text x="16" y="44">[SERVIDOR]    API de Gestión de Peritos Forenses</text>
+      <text x="16" y="66">[URL]         http://localhost:3000</text>
+      <text x="16" y="88">[DATABASE]    PostgreSQL conectado</text>
+      <text x="16" y="110">[HOST]        127.0.0.1:5433</text>
+      <text x="16" y="132">[BASE]        forensics</text>
+    </g>
+    <text x="16" y="177" fill="#e5e7eb"><tspan fill="#67e8f9">[ALTA]        </tspan>Perito #5 | usuario: perito_nuevo</text>
+    <text x="16" y="203" fill="#e5e7eb"><tspan fill="#93c5fd">[HTTP]        </tspan>POST    /api/v1/peritos  <tspan fill="#4ade80">201</tspan></text>
+    <text x="16" y="229" fill="#e5e7eb"><tspan fill="#fde047">[VALIDACIÓN]  409</tspan> · El username ya existe</text>
+    <text x="16" y="255" fill="#e5e7eb"><tspan fill="#f87171">[ERROR]       500</tspan> · Error interno</text>
+    <text x="16" y="283" fill="#9ca3af" font-family="Arial, sans-serif" font-size="14">Ejemplo ilustrativo del formato; los mensajes reales dependen de las peticiones ejecutadas.</text>
+  </g>
+</svg>

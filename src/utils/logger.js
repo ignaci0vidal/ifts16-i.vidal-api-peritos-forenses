@@ -34,13 +34,19 @@ function warning(status, message) {
     `${statusColor(status)(status)} · ${message}`));
 }
 
-function banner(port, dialect, storage) {
+function banner(port, dialect, connection) {
   const border = chalk.green('─'.repeat(60));
   console.log(`\n${border}`);
   console.log(line('SERVIDOR', chalk.green, 'API de Gestión de Peritos Forenses'));
   console.log(line('URL', chalk.green, `http://localhost:${port}`));
   console.log(line('DATABASE', chalk.green,
-    `${dialect === 'sqlite' ? 'SQLite' : 'PostgreSQL'} conectado${dialect === 'sqlite' ? ` · ${storage}` : ''}`));
+    `${dialect === 'sqlite' ? 'SQLite' : 'PostgreSQL'} conectado`));
+  if (dialect === 'sqlite') {
+    console.log(line('ARCHIVO', chalk.green, connection.storage));
+  } else {
+    console.log(line('HOST', chalk.green, `${connection.host}:${connection.port}`));
+    console.log(line('BASE', chalk.green, connection.database));
+  }
   console.log(`${border}\n`);
 }
 
