@@ -18,10 +18,7 @@ const User = sequelize.define(
       defaultValue: DataTypes.NOW,
     },
   },
-  {
-    tableName: 'users',
-    timestamps: false,
-  },
+  { tableName: 'users', timestamps: false },
 );
 
 module.exports = User;

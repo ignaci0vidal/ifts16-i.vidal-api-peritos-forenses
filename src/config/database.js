@@ -1,7 +1,7 @@
-const { Sequelize } = require('sequelize');
-require('dotenv').config();
+const { Sequelize } = require('sequelize'); //Importa la clase que administra la conexión y los modelos.
+require('dotenv').config(); //Carga las variables de .env en process.env si no estaban definidas previamente.
 
-const dialect = process.env.DB_DIALECT || 'sqlite';
+const dialect = process.env.DB_DIALECT || 'sqlite'; //Si no se indica un motor, utiliza SQLite. Es una decisión orientada a una ejecución local simple.
 
 let sequelize;
 
