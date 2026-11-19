@@ -9,6 +9,8 @@ if (dialect === 'sqlite') {
   sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: process.env.DB_STORAGE || './forensics.db',
+    // Sequelize activa PRAGMA foreign_keys = ON en cada conexión SQLite.
+    foreignKeys: true,
     logging: false,
   });
 } else if (dialect === 'postgres') {

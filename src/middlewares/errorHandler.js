@@ -10,7 +10,7 @@ function errorHandler(err, req, res, next) {
   } else if (status === 400 || status === 409) {
     console.warn(chalk.yellow.bold(`[VALIDACIÓN ${status}] ${err.message}`));
   } else {
-    console.warn(chalk.yellow(`[HTTP ${status}] ${err.message}`));
+    console.warn(chalk.blue(`[HTTP ${status}] ${err.message}`));
   }
 
   return res.status(status).json({

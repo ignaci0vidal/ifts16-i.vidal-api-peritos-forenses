@@ -70,6 +70,16 @@ DB_DIALECT=sqlite
 DB_STORAGE=./forensics.db
 ```
 
+El servidor comprueba la conexión y crea las tablas faltantes antes de aceptar
+solicitudes. SQLite aplica las claves foráneas en cada conexión.
+
+Si se utiliza un archivo SQLite nuevo, cargar los roles y los tres usuarios de
+prueba con este comando (también puede repetirse sin duplicar los datos):
+
+```bash
+npm run seed
+```
+
 Iniciar el servidor:
 
 ```bash

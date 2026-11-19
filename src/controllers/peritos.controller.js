@@ -122,18 +122,13 @@ async function listarPeritos(req, res, next) {
         {
           model: Role,
           attributes: ['nombre_rol'],
-          required: false,
+          required: role !== undefined,
           ...(role !== undefined ? { where: filtroRol } : {}),
         },
       ],
     });
 
-    const resultado =
-      role !== undefined
-        ? peritos.filter((perito) => perito.Role !== null)
-        : peritos;
-
-    return res.status(200).json(resultado);
+    return res.status(200).json(peritos);
   } catch (error) {
     return next(error);
   }
