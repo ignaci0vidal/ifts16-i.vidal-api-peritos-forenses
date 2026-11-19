@@ -18,3 +18,4 @@ services:
 volumes:
   ifts16-postgres-data:
     name: ifts16-postgres-data
+    

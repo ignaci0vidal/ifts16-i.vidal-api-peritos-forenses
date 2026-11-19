@@ -187,6 +187,6 @@ Chalk distingue los mensajes mediante colores:
 
 El middleware centralizado devuelve respuestas HTTP en formato JSON.
 
-## Autor
+## Desarrollado por:
 
 Ignacio Vidal — IFTS N.º 16.
