@@ -44,8 +44,8 @@ ifts16-api-peritos-forenses/
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/ignaci0vidal/ifts16-i.vidal-api-peritos-forenses.git
-cd ifts16-i.vidal-api-peritos-forenses
+git clone https://github.com/ignaci0vidal/ifts16-i.vidal-api-peritos-forenses.git ifts16-api-peritos-forenses
+cd ifts16-api-peritos-forenses
 ```
 
 Instalar dependencias:
@@ -73,12 +73,16 @@ DB_STORAGE=./forensics.db
 El servidor comprueba la conexión y crea las tablas faltantes antes de aceptar
 solicitudes. SQLite aplica las claves foráneas en cada conexión.
 
-Si se utiliza un archivo SQLite nuevo, cargar los roles y los tres usuarios de
-prueba con este comando (también puede repetirse sin duplicar los datos):
+Cargar los roles y los tres usuarios de prueba antes de iniciar la API
+(también puede repetirse sin duplicar los datos):
 
 ```bash
 npm run seed
 ```
+
+`sync()` crea tablas faltantes, pero no carga roles ni usuarios ni modifica
+restricciones de tablas existentes. Una base nueva necesita el seed para poder
+registrar peritos con un rol válido.
 
 Iniciar el servidor:
 
@@ -113,16 +117,10 @@ Iniciar PostgreSQL:
 docker compose up -d
 ```
 
-Crear las tablas mediante Sequelize:
+Crear las tablas y cargar los datos iniciales:
 
 ```bash
-node -e "const db = require('./src/config/database'); require('./src/models'); db.sync().then(() => console.log('Tablas creadas')).catch(console.error).finally(() => db.close())"
-```
-
-Cargar los datos iniciales:
-
-```bash
-node scripts/seed.js
+npm run seed
 ```
 
 Iniciar la API:
