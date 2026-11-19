@@ -1,16 +1,12 @@
-const chalk = require('chalk');
+const logger = require('../utils/logger');
 
 function errorHandler(err, req, res, next) {
   const status = err.status || err.statusCode || 500;
 
   if (status >= 500) {
-    console.error(chalk.red.bold(`[ERROR ${status}] ${err.message}`));
-
-    console.error(chalk.red(err.stack || err.message));
-  } else if (status === 400 || status === 409) {
-    console.warn(chalk.yellow.bold(`[VALIDACIÓN ${status}] ${err.message}`));
+    logger.error(err, status);
   } else {
-    console.warn(chalk.blue(`[HTTP ${status}] ${err.message}`));
+    logger.warning(status, err.message);
   }
 
   return res.status(status).json({

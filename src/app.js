@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const logger = require('./utils/logger');
 
 const peritosRoutes = require('./routes/peritos.routes');
 const errorHandler = require('./middlewares/errorHandler');
@@ -7,10 +8,9 @@ const errorHandler = require('./middlewares/errorHandler');
 const app = express();
 
 // Interpretar peticiones JSON
-app.use(express.json());
-
 // Registrar peticiones HTTP
-app.use(morgan('dev'));
+app.use(morgan(logger.httpFormat));
+app.use(express.json());
 
 // Rutas de la API
 app.use('/api/v1/peritos', peritosRoutes);

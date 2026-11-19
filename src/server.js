@@ -2,7 +2,7 @@ const app = require('./app');
 
 const PORT = process.env.PORT || 3000;
 
-const chalk = require('chalk');
+const logger = require('./utils/logger');
 const sequelize = require('./config/database');
 
 async function start() {
@@ -10,13 +10,10 @@ async function start() {
     await sequelize.authenticate();
     await sequelize.sync();
     app.listen(PORT, () => {
-      console.log(
-        chalk.green.bold('[SERVIDOR]') +
-          chalk.green(` API disponible en http://localhost:${PORT}`),
-      );
+      logger.banner(PORT, sequelize.getDialect(), sequelize.options.storage);
     });
   } catch (error) {
-    console.error(chalk.red(error.stack || error.message));
+    logger.error(error);
     await sequelize.close();
     process.exitCode = 1;
   }
